@@ -14,6 +14,7 @@ import com.vivekprojects.QuizAppBoot.dao.QuizDao;
 import com.vivekprojects.QuizAppBoot.model.Question;
 import com.vivekprojects.QuizAppBoot.model.QuestionWrapper;
 import com.vivekprojects.QuizAppBoot.model.Quiz;
+import com.vivekprojects.QuizAppBoot.model.Response;
 
 @Service
 public class QuizService {
@@ -50,6 +51,22 @@ public class QuizService {
 		
 		return new ResponseEntity<>(questionsForUser, HttpStatus.OK);
 				
+	}
+
+	public ResponseEntity<Integer> getResult(Integer id, List<Response> responses) {
+		// TODO Auto-generated method stub
+		Quiz quiz = quizDao.findById(id).get();
+		List<Question> questions = quiz.getQuestions();
+		
+		int i = 0;
+		int right = 0;
+		for(Response response : responses){
+			if(response.getResponse().equals(questions.get(i).getRightAnswer())) {
+				right++;
+			}			
+			i++;
+		}
+		return new ResponseEntity<>(right, HttpStatus.OK);		
 	}
 	
 }
