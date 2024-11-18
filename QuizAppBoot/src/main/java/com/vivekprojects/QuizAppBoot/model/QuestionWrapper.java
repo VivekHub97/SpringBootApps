@@ -1,27 +1,19 @@
-package com.vivekprojects.QuizAppBoot;
+package com.vivekprojects.QuizAppBoot.model;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.Data;
 
-@Data
-@Entity
-public class Question {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	
+public class QuestionWrapper {
+
+	private Integer id;	
 	private String questionTitle;
 	private String option1;
 	private String option2;
 	private String option3;
 	private String option4;
-	private String rightAnswer;
-	private String difficultylevel;
-	private String category;
+	
+	
 	public Integer getId() {
 		return id;
 	}
@@ -58,25 +50,17 @@ public class Question {
 	public void setOption4(String option4) {
 		this.option4 = option4;
 	}
-	public String getRightAnswer() {
-		return rightAnswer;
+	public QuestionWrapper(Integer id, String questionTitle, String option1, String option2, String option3,
+			String option4) {
+		super();
+		this.id = id;
+		this.questionTitle = questionTitle;
+		this.option1 = option1;
+		this.option2 = option2;
+		this.option3 = option3;
+		this.option4 = option4;
 	}
-	public void setRightAnswer(String rightAnswer) {
-		this.rightAnswer = rightAnswer;
-	}
-	public String getDifficultylevel() {
-		return difficultylevel;
-	}
-	public void setDifficultylevel(String difficultylevel) {
-		this.difficultylevel = difficultylevel;
-	}
-	public String getCategory() {
-		return category;
-	}
-	public void setCategory(String category) {
-		this.category = category;
-	}
-
-
+	
+	
 
 }

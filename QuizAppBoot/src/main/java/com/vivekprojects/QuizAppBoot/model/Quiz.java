@@ -1,4 +1,4 @@
-package com.vivekprojects.QuizAppBoot;
+package com.vivekprojects.QuizAppBoot.model;
 
 import java.util.List;
 

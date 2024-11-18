@@ -2,7 +2,7 @@ package com.vivekprojects.QuizAppBoot.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.vivekprojects.QuizAppBoot.Quiz;
+import com.vivekprojects.QuizAppBoot.model.Quiz;
 
 public interface QuizDao extends JpaRepository<Quiz, Integer>{
 

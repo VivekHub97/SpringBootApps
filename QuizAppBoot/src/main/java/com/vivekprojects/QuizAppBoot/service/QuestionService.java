@@ -8,8 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.vivekprojects.QuizAppBoot.Question;
 import com.vivekprojects.QuizAppBoot.dao.QuestionDao;
+import com.vivekprojects.QuizAppBoot.model.Question;
 
 @Service
 public class QuestionService {

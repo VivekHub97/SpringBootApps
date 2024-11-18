@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.vivekprojects.QuizAppBoot.Question;
+import com.vivekprojects.QuizAppBoot.model.Question;
 import com.vivekprojects.QuizAppBoot.service.QuestionService;
 
 @RestController
