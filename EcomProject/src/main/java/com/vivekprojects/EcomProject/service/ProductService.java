@@ -31,6 +31,28 @@ public class ProductService {
 		// TODO Auto-generated method stub
 		return repo.findById(id).orElse(null);
 	}
+
+	public void deleteProductById(int id) {
+		// TODO Auto-generated method stub
+		repo.deleteById(id);
+		
+	}
+
+	public void updateProduct(Product product, int id) {
+		// TODO Auto-generated method stub
+		
+//		Product prevProd = getProductById(id);
+//		prevProd.setId(id);
+//		prevProd.setAvailable(product.isAvailable());
+//		prevProd.setBrand(product.getBrand());
+//		prevProd.setDesc(product.getDesc());
+//		prevProd.setName(product.getName());
+//		prevProd.setPrice(product.getPrice());
+//		prevProd.setReleaseDate(product.getReleaseDate());
+		
+		repo.save(product);
+			
+	}
 	
 	
 
