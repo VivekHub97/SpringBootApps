@@ -21,11 +21,10 @@ public class ProductService {
 		return repo.findAll();
 	}
 
-	public void addProduct() {
+	public void addProduct(Product product) {
 		// TODO Auto-generated method stub
-		repo.save(new Product());
-		
-		
+		repo.save(product);
+			
 	}
 
 	public Product getProductById(int id) {

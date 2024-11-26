@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,36 +20,40 @@ import com.vivekprojects.EcomProject.service.ProductService;
 @CrossOrigin
 @RequestMapping("/api")
 public class ProductController {
-	
+
 	@Autowired
 	private ProductService service;
-	
+
 	@RequestMapping("/")
 	public String greet() {
 		return "Hello !";
 	}
-	
+
 	@GetMapping("/products")
-	public ResponseEntity<List<Product>> getAllProducts(){
+	public ResponseEntity<List<Product>> getAllProducts() {
 		return new ResponseEntity<>(service.getAllProducts(), HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/product/{id}")
-	public ResponseEntity<Product> getProductById(@PathVariable int id){
-		
+	public ResponseEntity<Product> getProductById(@PathVariable int id) {
+
 		Product product = service.getProductById(id);
-		if(product != null) {
+		if (product != null) {
 			return new ResponseEntity<>(product, HttpStatus.OK);
-		}
-		else
+		} else
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		
-		
+
 	}
-	
+
 	@PostMapping("/addProduct")
-	public void addProduct(){
-		service.addProduct();
+	public ResponseEntity<?> addProduct(@RequestBody Product product) {
+
+		try {
+			service.addProduct(product);
+			return new ResponseEntity<>(HttpStatus.CREATED);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+		}
 	}
 
 }
