@@ -53,6 +53,11 @@ public class ProductService {
 		repo.save(product);
 			
 	}
+
+	public List<Product> searchProducts(String keyword) {
+		// TODO Auto-generated method stub
+		return repo.searchProducts(keyword);
+	}
 	
 	
 

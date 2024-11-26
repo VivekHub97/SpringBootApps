@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vivekprojects.EcomProject.model.Product;
@@ -72,5 +73,14 @@ public class ProductController {
 			service.updateProduct(product, id);
 			return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}
+	
+	@GetMapping("/product/search")
+	public ResponseEntity<List<Product>> searchProducts(@RequestParam String keyword) {
+
+			List<Product> products = service.searchProducts(keyword);
+			return new ResponseEntity<>(products, HttpStatus.ACCEPTED);
+	}
+	
+	
 
 }
