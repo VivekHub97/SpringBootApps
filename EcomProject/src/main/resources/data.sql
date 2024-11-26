@@ -1,0 +1,1 @@
+insert into product (name, desc, brand, price, available, release_Date) VALUES ('tata nexon', 'features and performance', 'TaTa Motors', 7500, true, '2024-01-15'), ('Renault Kwid', 'fuel efficiency and reliable', 'Renault Motors', 500, false, '2018-02-01')
